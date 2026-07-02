@@ -248,3 +248,15 @@ input[type="number"] {
     grid-template-columns: 1fr;
   }
 }
+
+.error {
+  color: #b91c1c;
+}
+
+.success {
+  color: #047857;
+}
+
+.answer-card {
+  margin: 16px 0;
+}

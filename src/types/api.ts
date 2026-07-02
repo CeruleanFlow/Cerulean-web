@@ -1,4 +1,5 @@
 export type PaperStatus = 'uploaded' | 'processing' | 'parsed' | 'indexed' | 'failed'
+export type TaskStatus = 'queued' | 'running' | 'succeeded' | 'failed'
 
 export interface Paper {
   id: string
@@ -10,12 +11,40 @@ export interface Paper {
   object_key: string
   status: PaperStatus
   page_count: number
+  error?: string
   created_at: string
   updated_at: string
 }
 
 export interface PaperListResponse {
   items: Paper[]
+}
+
+export interface Chunk {
+  id: string
+  paper_id: string
+  page_no: number
+  index: number
+  text: string
+  object_key?: string
+  vector_id?: string
+  metadata?: Record<string, string>
+  created_at: string
+  updated_at: string
+}
+
+export interface ChunkListResponse {
+  items: Chunk[]
+}
+
+export interface Task {
+  id: string
+  paper_id: string
+  type: string
+  status: TaskStatus
+  message?: string
+  created_at: string
+  updated_at: string
 }
 
 export interface SearchRequest {
@@ -30,6 +59,7 @@ export interface Source {
   page_no: number
   text: string
   score: number
+  backend?: string
 }
 
 export interface SearchResponse {
