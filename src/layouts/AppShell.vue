@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import logoUrl from '@/assets/Cerulean.png'
+
 const navItems = [
   { to: '/', label: 'Overview' },
   { to: '/papers', label: 'Papers' },
@@ -12,7 +14,9 @@ const navItems = [
   <div class="app-shell">
     <aside class="sidebar">
       <div class="brand">
-        <div class="brand-mark">Ce</div>
+        <div class="brand-mark">
+          <img :src="logoUrl" alt="Cerulean logo" />
+        </div>
         <div>
           <h1>Cerulean</h1>
           <p>Paper RAG</p>
